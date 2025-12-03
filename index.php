@@ -73,16 +73,51 @@
          echo "<hr>";
        }
      ?>
+</td>  
 
-        <?php 
+<td>
+<?php 
          foreach($hotels as $hotel){
-         echo $hotel["name"];
+         echo $hotel["description"];
          echo "<hr>";
        }
      ?>
+</td>
 
-  </td>  
 
+<td>
+<?php 
+         foreach($hotels as $hotel){
+         echo $hotel["vote"];
+         echo "<hr>";
+       }
+     ?>
+</td>
+
+
+<td>
+<?php 
+         foreach($hotels as $hotel){
+            if($hotel["parking"] == false){
+                echo 'Nessun parcheggio';
+            }
+         echo $hotel["parking"];
+         echo "<hr>";
+       }
+     ?>
+</td>
+
+<td>
+<?php 
+         foreach($hotels as $hotel){
+         echo $hotel["distance_to_center"];
+         echo "<hr>";
+       }
+     ?>
+</td>
+        
+
+  
 </tbody>
 
 </table>
