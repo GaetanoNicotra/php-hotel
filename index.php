@@ -7,10 +7,10 @@
     <title>PHP Hotel</title>
 </head>
 <body>
+
     <h1>Hotels</h1>
 
     <?php
-
 # Array di hotel
 
     $hotels = [
@@ -53,6 +53,7 @@
 
     ];
 
+    # Logica di filtraggio
 $parkingRequest = false;
 
     if(isset($_GET['parking']) && $_GET['parking'] == 'on'){
@@ -63,12 +64,12 @@ $parkingRequest = false;
 
 <!-- Form per i filtraggi -->
 <div class="container">
-    <form class='ms-2' action=''>
+    <form class='ms-2 mb-4' action=''>
        
         <input id='parking' type='checkbox' class='btn btn-primary' name='parking'></input>
          <label for='parking'>Mostra hotel con parcheggio</label>
 
-        <button>Cerca</button>
+        <button class='btn btn-primary'>Cerca</button>
     </form>
 </div>
 
