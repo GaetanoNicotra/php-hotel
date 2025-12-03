@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>PHP Hotel</title>
 </head>
 <body>
     <h1>Hotels</h1>
@@ -54,19 +55,22 @@
 
 ?>
 
-<table>
+<div class="container">
+    <table class='table'>
 
-<tr>
-    <th>nome</th>
-    <th>descrizione</th>
-    <th>voto</th>
-    <th>parcheggio</th>
-    <th>distanza dal centro</th>
-</tr>
+<thead>
+   <tr class='table-primary'>
+    <th>Nome</th>
+    <th>Descrizione</th>
+    <th>Voto</th>
+    <th>Parcheggio</th>
+    <th>Distanza dal centro</th>
+</tr> 
+</thead>
 
 <tbody>
-  
-    <td>
+<tr class='table-info'>
+     <td>
         <?php 
          foreach($hotels as $hotel){
          echo $hotel["name"];
@@ -83,7 +87,6 @@
        }
      ?>
 </td>
-
 
 <td>
 <?php 
@@ -110,17 +113,20 @@
 <td>
 <?php 
          foreach($hotels as $hotel){
-         echo $hotel["distance_to_center"];
+         echo $hotel["distance_to_center"].' m';
          echo "<hr>";
        }
      ?>
 </td>
         
-
-  
+</tr>
+   
 </tbody>
 
 </table>
+</div>
+
+
 
 </body>
 </html>
