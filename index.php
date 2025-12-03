@@ -53,11 +53,28 @@
 
     ];
 
+$parkingRequest = false;
+
+    if(isset($_GET['parking']) && $_GET['parking'] == 'on'){
+        $parkingRequest=true;
+    }
+
 ?>
 
+<!-- Form per i filtraggi -->
+<div class="container">
+    <form class='ms-2' action=''>
+       
+        <input id='parking' type='checkbox' class='btn btn-primary' name='parking'></input>
+         <label for='parking'>Mostra hotel con parcheggio</label>
+
+        <button>Cerca</button>
+    </form>
+</div>
+
+<!-- Tabella -->
 <div class="container">
     <table class='table'>
-
 <thead>
    <tr class='table-primary'>
     <th>Nome</th>
@@ -73,15 +90,24 @@
      <td>
         <?php 
          foreach($hotels as $hotel){
+            
+    if($parkingRequest && !$hotel['parking']){
+        continue;
+    }
          echo $hotel["name"];
          echo "<hr>";
        }
+
      ?>
 </td>  
 
 <td>
 <?php 
          foreach($hotels as $hotel){
+            
+    if($parkingRequest && !$hotel['parking']){
+        continue;
+    }
          echo $hotel["description"];
          echo "<hr>";
        }
@@ -91,6 +117,10 @@
 <td>
 <?php 
          foreach($hotels as $hotel){
+            
+    if($parkingRequest && !$hotel['parking']){
+        continue;
+    }
          echo $hotel["vote"];
          echo "<hr>";
        }
@@ -99,12 +129,16 @@
 
 
 <td>
-<?php 
+<?php
          foreach($hotels as $hotel){
+            
+    if($parkingRequest && !$hotel['parking']){
+        continue;
+    }
             if($hotel["parking"] == false){
                 echo 'Nessun parcheggio';
             }
-         echo $hotel["parking"];
+         echo $hotel["parking"].' Presente';
          echo "<hr>";
        }
      ?>
@@ -113,6 +147,10 @@
 <td>
 <?php 
          foreach($hotels as $hotel){
+            
+    if($parkingRequest && !$hotel['parking']){
+        continue;
+    }
          echo $hotel["distance_to_center"].' m';
          echo "<hr>";
        }
@@ -122,11 +160,8 @@
 </tr>
    
 </tbody>
-
 </table>
 </div>
-
-
 
 </body>
 </html>
